@@ -1,0 +1,2 @@
+defmodule Huami do
+end
