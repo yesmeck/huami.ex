@@ -4,6 +4,34 @@ defmodule Huami do
   @str2 "kise"
   @str3 "sunlovesnow1990090127xykab"
 
+  def main(argv) do
+    argv
+    |> parse_args
+    |> process
+  end
+
+  def parse_args(argv) do
+    parse = OptionParser.parse(argv, switches: [ help: :boolean],
+                                     aliases:  [ h:    :help   ])
+    case parse do
+      { [ help: true ], _,           _ } -> :help
+      { _, [ key, password ],        _ } -> { key, password }
+      _                                  -> :help
+    end
+  end
+
+  def process(:help) do
+     IO.puts """
+     usage:  huami <key> <password>
+     """
+    System.halt(0)
+  end
+
+  def process({ key, password }) do
+    IO.puts encode(key, password)
+    System.halt(2)
+  end
+
   def encode(key, password) do
     hmac_str1 = hmac(key, password)
     hmac_str2 = hmac(@str1, hmac_str1)

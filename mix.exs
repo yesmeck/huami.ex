@@ -4,6 +4,9 @@ defmodule Huami.Mixfile do
   def project do
     [app: :huami,
      version: "0.0.1",
+     name: "Huami",
+     source_url: "https://github.com/yesmeck/huami.ex",
+     escript: escript_config,
      elixir: "~> 1.0",
      deps: deps]
   end
@@ -26,5 +29,9 @@ defmodule Huami.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     []
+  end
+
+  def escript_config do
+    [ main_module: Huami ]
   end
 end
