@@ -2,13 +2,15 @@ defmodule Huami.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :huami,
+    [ app: :huami,
      version: "0.0.1",
      name: "Huami",
+     description: "A CLI version of flower password writing in Elixir. ",
+     package: package,
      source_url: "https://github.com/yesmeck/huami.ex",
      escript: escript_config,
      elixir: "~> 1.0",
-     deps: deps]
+     deps: deps ]
   end
 
   # Configuration for the OTP application
@@ -33,5 +35,11 @@ defmodule Huami.Mixfile do
 
   def escript_config do
     [ main_module: Huami ]
+  end
+
+  def package do
+     [ contributors: ["Wei Zhu"],
+       licenses: ["MIT"],
+       links: %{"Github" => "https://github.com/yesmeck/huami.ex"} ]
   end
 end
