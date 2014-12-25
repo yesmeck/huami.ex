@@ -1,4 +1,2 @@
-Huami
-=====
+# Huami
 
-** TODO: Add description **
