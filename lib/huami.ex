@@ -52,20 +52,20 @@ defmodule Huami do
   end
 
   def case_swap(rule, source) do
-    _case_swarp(rule, source, [])
+    _case_swap(rule, source, [])
   end
 
-  def _case_swarp([], [], swapped_source) do
+  def _case_swap([], [], swapped_source) do
     swapped_source
   end
 
-  def _case_swarp([rule_head | rule_tail], [source_head | source_tail], swapped_source) do
+  def _case_swap([rule_head | rule_tail], [source_head | source_tail], swapped_source) do
     if String.contains?(@str3, rule_head) do
       swapped_source = swapped_source ++ [ String.upcase(source_head) ]
     else
       swapped_source = swapped_source ++ [ source_head ]
     end
-    _case_swarp(rule_tail, source_tail, swapped_source)
+    _case_swap(rule_tail, source_tail, swapped_source)
   end
 
   def ensure_first_char_is_str(source = [head | tail]) do
